@@ -1,6 +1,6 @@
 
-const {traerTareas, traerTareasID,crearTaks,ModificarTarea,eliminarTarea} = require("../controllers/controladores")
-const router = require("express").Router();
+const {traerTareas,traerTareasID,crearTaks,ModificarTarea,eliminarTarea} = require("../controllers/controladores")
+export const router = require("express").Router();
 
 //obtener todas las tareas
 router.get("/task", traerTareas);
@@ -13,7 +13,3 @@ router.put("/task/:id", ModificarTarea);
 //eliminar tarea
 router.delete("/task/:id", eliminarTarea);
 
-
-
-
-module.exports= router;

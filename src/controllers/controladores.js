@@ -1,9 +1,9 @@
 const express = require("express")
 const {bd} = require("../BD/baseDeDatos")
-const crtl = {}
+
 
 //traer todas las tareas
-crtl.traerTareas = async (req,res)=>{
+export const traerTareas = async (req,res)=>{
     try {
         const coneccion = await bd();
 
@@ -20,7 +20,7 @@ crtl.traerTareas = async (req,res)=>{
 
 
 //crear tareas
-crtl.crearTaks = async ( req,res)=>{
+export const crearTaks = async ( req,res)=>{
     try{
         const {title,description,isComplete}= req.body;
         const conexion = await bd();
@@ -37,8 +37,7 @@ crtl.crearTaks = async ( req,res)=>{
 }
 
 //obtener por id 
-
-crtl.traerTareasID = async (req,res)=>{
+export const traerTareasID = async (req,res)=>{
     try {
         const coneccion = await bd();
         const {id} = req.params
@@ -54,7 +53,7 @@ crtl.traerTareasID = async (req,res)=>{
 }
 
 //modificar tarea
-crtl.ModificarTarea = async (req,res)=>{
+export const ModificarTarea = async (req,res)=>{
     
     const coneccion = await bd();
     const {id} = req.params
@@ -79,10 +78,8 @@ crtl.ModificarTarea = async (req,res)=>{
     }
 }
 
-
-
 //eliminar tarea
-crtl.eliminarTarea = async (req,res)=>{
+export const eliminarTarea = async (req,res)=>{
     
     const coneccion = await bd();
         const {id} = req.params
@@ -98,5 +95,3 @@ crtl.eliminarTarea = async (req,res)=>{
         res.status(500).json({msg:"error en el servidor"})
     }
 }
-
-module.exports = crtl
